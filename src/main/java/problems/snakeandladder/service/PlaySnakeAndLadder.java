@@ -30,7 +30,7 @@ public class PlaySnakeAndLadder {
             StringBuilder str = new StringBuilder(); // To print output
             String playeName = entities.getPlayers().get(i);
             str.append(playeName);
-            int diceNumber = dice.getNumberOfDice();
+            int diceNumber = dice.getNumberInRollOfDice();
             int endPosition = playerLatestPosition.get(playeName) + diceNumber;
             String sl = "";
             if (checkFordiceNumberGreaterThan100(endPosition)) {

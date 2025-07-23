@@ -4,16 +4,16 @@ import java.util.Random;
 
 
 public class Dice {
-    private int numberOfDice;
+    private int numberOfSideInDice;
     private static int MIN = 1;
     Random random;
 
     public Dice(int numberOfDice) {
         random = new Random();
-        this.numberOfDice = numberOfDice;
+        this.numberOfSideInDice = numberOfDice;
     }
 
-    public int getNumberOfDice() {
-        return random.nextInt((this.numberOfDice - MIN) + 1) + 1;
+    public int getNumberInRollOfDice() {
+        return random.nextInt((this.numberOfSideInDice - MIN) + 1) + 1;
     }
 }

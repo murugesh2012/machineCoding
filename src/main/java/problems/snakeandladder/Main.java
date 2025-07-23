@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Entities entities = Entities.getInstance();
-
+        System.out.println("Enter the number of Snakes: ");
         int noOfSnakes = scan.nextInt();
         while (noOfSnakes > 0) {
             int startPosition = scan.nextInt();
@@ -17,6 +17,7 @@ public class Main {
             entities.setSnake(startPosition, endPosition);
             noOfSnakes--;
         }
+        System.out.println("Enter the number of Ladders: ");
         int noOfLadders = scan.nextInt();
         while (noOfLadders > 0) {
             int startPosition = scan.nextInt();
@@ -24,6 +25,7 @@ public class Main {
             entities.setLadder(startPosition, endPosition);
             noOfLadders--;
         }
+        System.out.println("Enter the number of Players: ");
         int noOfPlayers = scan.nextInt();
         int i = 0;
         while (noOfPlayers > 0) {
