@@ -16,7 +16,6 @@ public class PlaySnakeAndLadder {
         playerLatestPosition = new HashMap<>();
         entities = Entities.getInstance();
         dice = new Dice(N);
-
     }
 
     public String PlayGame() {
@@ -39,12 +38,15 @@ public class PlaySnakeAndLadder {
                 if (entities.getSnakes().get(endPosition) != null) {
                     // Captures snake
                     sl = " after Snake dinner";
-                    playerLatestPosition.put(playeName, entities.getSnakes().get(endPosition));
+                    endPosition = getFinalPosition(endPosition, entities.getSnakes());
+                    playerLatestPosition.put(playeName, endPosition);
                 } else {
                     if (entities.getLadders().get(endPosition) != null) {
                         // up ladder
                         sl = " after Ladder ride ";
-                        playerLatestPosition.put(playeName, entities.getLadders().get(endPosition));
+                        endPosition = getFinalPosition(endPosition, entities.getLadders());
+                        playerLatestPosition.put(playeName, endPosition);
+
                     } else {
                         playerLatestPosition.put(playeName, endPosition);
                     }
@@ -70,5 +72,12 @@ public class PlaySnakeAndLadder {
         for (int i = 0; i < entities.getPlayers().size(); i++) {
             playerLatestPosition.put(entities.getPlayers().get(i), 0);
         }
+    }
+    private int getFinalPosition(int position, HashMap<Integer, Integer> jumpsMap) {
+        Integer next = jumpsMap.get(position);
+        if (next == null) {
+            return position;
+        }
+        return getFinalPosition(next, jumpsMap);
     }
 }
