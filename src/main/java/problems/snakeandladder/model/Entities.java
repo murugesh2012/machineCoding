@@ -29,7 +29,7 @@ public class Entities {
     }
 
     public void setLadder(int startPosition, int endPosition) {
-        if(ladders.containsKey(startPosition))
+        if(ladders.containsKey(startPosition) || snakes.containsKey(startPosition))
         {
             System.out.println("Error: Multiple Ladder head cant be at same position. Terminating program.");
             System.exit(1);
