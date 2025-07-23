@@ -15,6 +15,12 @@ public class Entities {
     }
 
     public void setSnake(int startPosition, int endPosition) {
+        if(startPosition == 100 || snakes.containsKey(startPosition))
+        {
+            System.out.println("Error: Cannot place a snake to end position 100 or Multiple Snakes cant start same position. Terminating program.");
+            System.exit(1);
+        }
+
         snakes.put(startPosition, endPosition);
     }
 
@@ -23,6 +29,11 @@ public class Entities {
     }
 
     public void setLadder(int startPosition, int endPosition) {
+        if(ladders.containsKey(startPosition))
+        {
+            System.out.println("Error: Multiple Ladder head cant be at same position. Terminating program.");
+            System.exit(1);
+        }
         ladders.put(startPosition, endPosition);
     }
 
